@@ -1,6 +1,7 @@
 import { CodeBlock } from "@/components/codeBlock";
 import { buttonVariants } from "@/components/ui/button";
 import Link from "next/link";
+import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Install guide - GateUI",

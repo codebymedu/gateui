@@ -2,6 +2,7 @@ import { CodeBlock } from "@/components/codeBlock";
 import { buttonVariants } from "@/components/ui/button";
 import { Clock } from "lucide-react";
 import Link from "next/link";
+import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "User Management - GateUI",

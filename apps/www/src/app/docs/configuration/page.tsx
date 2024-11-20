@@ -1,4 +1,5 @@
 import { CodeBlock } from "@/components/codeBlock";
+import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Configurations - GateUI",
