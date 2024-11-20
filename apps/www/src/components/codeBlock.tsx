@@ -29,10 +29,11 @@ export function CodeBlock({
     <ReactCodeBlock code={code} language={language} theme={themes.oneDark}>
       <ReactCodeBlock.Code
         className={cn(
-          "border rounded-none w-full max-w-[500px] p-4 relative",
+          "border rounded-none w-full max-w-[500px] p-4 pt-16 md:pt-4 relative text-wrap",
           className
         )}
       >
+        <div className="absolute top-4 left-4 md:hidden">{language}</div>
         <div className="table-row">
           <ReactCodeBlock.LineContent className="table-cell">
             <ReactCodeBlock.Token />

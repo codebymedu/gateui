@@ -64,17 +64,15 @@ export default function RootLayout({
         <SidebarProvider>
           <DocsSidebar />
           <main className="p-2 w-full">
-            <header className="w-full flex justify-between  items-center">
-              <div className="">
-                <SidebarTrigger />
+            <header className="w-full flex flex-col md:flex-row justify-between items-start  md:items-center">
+              <SidebarTrigger />
 
-                <span className="text-xl text-neutral-400 font-semibold ">
-                  GateUI - Fully Functional Auth Components for Next.js and
-                  Supabase
-                </span>
-              </div>
+              <span className="text-sm md:text-xl ml-4 md:ml-0 text-neutral-400 font-semibold ">
+                GateUI - Fully Functional Auth Components for Next.js and
+                Supabase
+              </span>
             </header>
-            <div className="p-16">{children}</div>{" "}
+            <div className="p-4 md:p-16">{children}</div>{" "}
           </main>
         </SidebarProvider>
 

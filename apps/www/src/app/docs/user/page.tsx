@@ -16,7 +16,7 @@ export default function InstallPage() {
   return (
     <div>
       <div className="">
-        <h1 className="text-3xl font-bold mb-6 font-mono flex gap-4 items-center">
+        <h1 className="text-3xl font-bold mb-2 font-mono flex md:flex-row gap-4 items-start flex-col-reverse md:items-center">
           Setup User Management{" "}
           <div className="py-1 px-2 flex gap-2 items-center bg-green-500 text-sm">
             <Clock size={16} /> Saves 14 hours of work

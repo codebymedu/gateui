@@ -16,7 +16,7 @@ export default function AuthenticationPage() {
   return (
     <div>
       <div className="">
-        <h1 className="text-3xl font-bold mb-2 font-mono flex gap-4 items-center">
+        <h1 className="text-3xl font-bold mb-2 font-mono flex md:flex-row gap-4 items-start flex-col-reverse md:items-center">
           Setup Authentication
           <div className="py-1 px-2 flex gap-2 items-center bg-green-500 text-sm">
             <Clock size={16} /> Saves 16 hours of work
