@@ -17,8 +17,11 @@
     "clsx": "^2.1.1",
     "lucide-react": "^0.460.0",
     "next": "15.0.3",
+    "prism-react-renderer": "^2.4.0",
     "react": "19.0.0-rc-66855b96-20241106",
+    "react-code-block": "^1.0.1",
     "react-dom": "19.0.0-rc-66855b96-20241106",
+    "react-use": "^17.5.1",
     "tailwind-merge": "^2.5.4",
     "tailwindcss-animate": "^1.0.7"
   },
