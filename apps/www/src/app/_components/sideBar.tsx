@@ -144,15 +144,6 @@ export function DocsSidebar() {
 
               <SidebarMenuItem>
                 <SidebarMenuButton asChild>
-                  <Link href={"/docs/getting-started"}>
-                    <Terminal />
-                    <code>Getting Started</code>
-                  </Link>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
-
-              <SidebarMenuItem>
-                <SidebarMenuButton asChild>
                   <Link href={"/docs/configuration"}>
                     <FileJson />
                     <code>Config</code>

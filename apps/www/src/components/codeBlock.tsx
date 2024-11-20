@@ -2,13 +2,16 @@
 import { CodeBlock as ReactCodeBlock } from "react-code-block";
 import { themes } from "prism-react-renderer";
 import { useCopyToClipboard } from "react-use";
+import { cn } from "@/lib/utils";
 
 export function CodeBlock({
   code,
   language,
+  className,
 }: {
   code: string;
   language: string;
+  className?: string;
 }) {
   // --- STATE ---
 
@@ -24,7 +27,12 @@ export function CodeBlock({
 
   return (
     <ReactCodeBlock code={code} language={language} theme={themes.oneDark}>
-      <ReactCodeBlock.Code className="border rounded-none w-full max-w-[500px] p-4 relative">
+      <ReactCodeBlock.Code
+        className={cn(
+          "border rounded-none w-full max-w-[500px] p-4 relative",
+          className
+        )}
+      >
         <div className="table-row">
           <ReactCodeBlock.LineContent className="table-cell">
             <ReactCodeBlock.Token />

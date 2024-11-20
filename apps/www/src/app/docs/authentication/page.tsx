@@ -9,7 +9,7 @@ export default function InstallPage() {
     <div>
       <div className="">
         <h1 className="text-3xl font-bold mb-6 font-mono">
-          Get Started with GateUI
+          Setup Authentication
         </h1>
 
         <section className="mb-8">
@@ -17,84 +17,35 @@ export default function InstallPage() {
             Prerequisites
           </h2>
           <ul className="list-disc pl-6">
-            <li>Next.js 14+ with App Router (app folder)</li>
-            <li>TypeScript</li>
-            <li>An existing Next.js project</li>
+            <li>GateUI Installed</li>
           </ul>
           <p className="mt-2">
-            If you haven't installed Next.js yet, follow the{" "}
+            If you haven't installed GateUI yet, follow the{" "}
             <Link
-              href="https://nextjs.org/docs/getting-started/installation"
+              href="http://localhost:3000/docs/install"
               className="text-blue-600 hover:underline"
             >
-              Next.js installation guide
+              GateUI installation guide
             </Link>
             .
           </p>
         </section>
 
-        <section className="mb-8 ">
-          <h2 className="text-xl font-semibold mb-2 font-mono">Installation</h2>
-          <ol className="list-decimal pl-6 mb-4">
-            <li>Open your terminal</li>
-            <li>Navigate to your project folder</li>
-            <li>Run the following command:</li>
-          </ol>
-
-          <CodeBlock code="npx @cdm/gateui init" language="js" />
-        </section>
-
-        <section className="mb-8">
-          <h2 className="text-xl font-semibold mb-2 font-mono">
-            What Happens Next
-          </h2>
-          <ul className="list-disc pl-6">
-            <li>GateUI will ask if Supabase is configured</li>
-            <li className="ml-6">
-              If Supabase isn't set up, the installer will set it up for you.
-              You need to{" "}
-              <Link
-                className="text-blue-600 hover:underline"
-                target="_blank"
-                href="https://supabase.com/docs/guides/getting-started/quickstarts/nextjs"
-              >
-                set the environment variables (3rd step)
-              </Link>{" "}
-              and{" "}
-              <Link
-                href="https://supabase.com/docs/guides/auth/server-side/nextjs"
-                className="text-blue-600 hover:underline"
-              >
-                hook up the created middleware (4th step only next.js
-                middleware)
-              </Link>
-            </li>
-            <li className="ml-6">
-              If Supabase & Supabase auth middleware is set up, you only need to
-              enter the location of the clients in gateui.json
-            </li>
-            <li>
-              A gateui.json file will be created with your configuration (Make
-              sure to review it before installing any of the features.)
-            </li>
-          </ul>
-        </section>
-
         <section className="mb-8 border p-4 rounded-md w-fit">
           <h2 className="text-xl font-semibold mb-2 font-mono">
-            Next Steps: Authentication Setup
+            Next Steps: User Management (optional)
           </h2>
           <p className="mb-4">
-            Learn how to add authentication to your app using GateUI components.
+            Learn how to install user management features such as user profile.
           </p>
           <Link
-            href="/docs/authentication"
+            href="/docs/user"
             className={buttonVariants({
               variant: "default",
               className: "text-white",
             })}
           >
-            Authentication Guide
+            User Management
           </Link>
         </section>
 
