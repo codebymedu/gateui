@@ -8,21 +8,27 @@ export default function InstallPage() {
   return (
     <div>
       <div className="">
-        <h1 className="text-3xl font-bold mb-2 font-mono">
-          Setup Authentication
+        <h1 className="text-3xl font-bold mb-6 font-mono">
+          Setup User Management
         </h1>
 
         <p className="mb-6 text-neutral-400">
-          Everything for handling authenticating users
+          Everything for letting users manage their accounts
         </p>
 
         <section className="mb-8">
           <h2 className="text-xl font-semibold mb-2 font-mono">
             Prerequisites
           </h2>
+
           <ul className="list-disc pl-6">
             <li>GateUI Installed</li>
           </ul>
+
+          <ul className="list-disc pl-6">
+            <li>Supabase Installed</li>
+          </ul>
+
           <p className="mt-2">
             If you haven't installed GateUI yet, follow the{" "}
             <Link
@@ -44,10 +50,10 @@ export default function InstallPage() {
             <li>Run the following command:</li>
           </ol>
 
-          <CodeBlock code="npx @cdm/gateui add auth" language="js" />
+          <CodeBlock code="npx @cdm/gateui add user" language="js" />
 
           <p>
-            This will copy all the authentication code to your codebase.
+            This will copy all the user management code to your codebase.
             Continue below to see more in details what is added to the codebase.
           </p>
         </section>
@@ -56,29 +62,23 @@ export default function InstallPage() {
           <h2 className="text-xl font-semibold mb-2 font-mono">How to use</h2>
 
           <p className="mb-2">
-            All you need to do is use the Login component in where you want the
-            login to be such as in a /login route or modal.
+            All you need to do is use the UserProfile component in your page.
           </p>
 
-          <p className="mb-8">
-            Login component also contains the signup component so there is no
-            need to create a separate route for signup. But if you wish to do
-            so, the Signup component is also exported from @/components/auth
-          </p>
-
-          <p className="mb-2 font-bold">Example Login Page</p>
+          <p className="mb-2 font-bold">Example Profile Page</p>
 
           <CodeBlock
+            className="max-w-[700px]"
             code={`
-            import { Login } from "@/components/auth";
+            import { UserProfile } from "@/components/user";
 
-export default function LoginPage() {
+export default function UserProfilePage() {
   // --- RENDER ---
 
   return (<div>
     <h1>Welcome to MyApp</h1>
     
-    <LoginForm />
+    <UserProfile />
     </div>)
 }
 `}
@@ -96,34 +96,31 @@ export default function LoginPage() {
           </p>
 
           <ul className="list-disc pl-6 mb-4">
-            <li>Components: @/components/auth/</li>
+            <li>Components: @/components/user/</li>
             <li className="ml-4">
-              Exports: Login, SignUp, ForgotPassword, Logout
+              Exports: UserProfile, UserProfileDetails, UserProfileSecurity
             </li>
-            <li>Lib: @/lib/auth</li>
-            <li className="ml-4">
-              Exports: getUser, loginWithPassword, loginWithProvider,
-              loginWithMagicLink, signUpWithPassword, logout
-            </li>
-            <li>Routes: /auth/callback and /auth/confirm</li>
+            <li>Lib: @/lib/user</li>
+            <li className="ml-4">Exports: updateUser</li>
           </ul>
         </section>
 
         <section className="mb-8 border p-4 rounded-md w-fit">
           <h2 className="text-xl font-semibold mb-2 font-mono">
-            Next Steps: User Management (optional)
+            Next Steps: Access Control (optional)
           </h2>
           <p className="mb-4">
-            Learn how to install user management features such as user profile.
+            Learn how to install access control features such as restricting
+            pages or using roles.
           </p>
           <Link
-            href="/docs/user"
+            href="/docs/access-control"
             className={buttonVariants({
               variant: "default",
               className: "text-white",
             })}
           >
-            User Management
+            Access Control
           </Link>
         </section>
 

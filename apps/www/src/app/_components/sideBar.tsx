@@ -181,7 +181,7 @@ export function DocsSidebar() {
           target="_blank"
           className="border group w-full flex items-center gap-2 p-4 border-primary hover:bg-primary duration-100"
         >
-          <Star /> Star us on Github
+          <Star /> Star on Github
         </a>
       </SidebarFooter>
     </Sidebar>

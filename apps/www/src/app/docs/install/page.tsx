@@ -51,8 +51,8 @@ export default function InstallPage() {
           <ul className="list-disc pl-6">
             <li>GateUI will ask if Supabase is configured</li>
             <li className="ml-6">
-              If Supabase isn't set up, the installer will set it up for you.
-              You need to{" "}
+              If Supabase isn't set up, the installer will set it up for you in
+              ./src/lib/supabase/. You need to{" "}
               <Link
                 className="text-blue-600 hover:underline"
                 target="_blank"

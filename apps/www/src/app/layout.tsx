@@ -3,9 +3,6 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { DocsSidebar } from "./_components/sideBar";
-import { Github } from "lucide-react";
-import Link from "next/link";
-import { buttonVariants } from "@/components/ui/button";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -46,19 +43,6 @@ export default function RootLayout({
                   Supabase
                 </span>
               </div>
-
-              <Link
-                href="https://github.com/codebymedu/gateui"
-                target="_blank"
-                className={buttonVariants({
-                  variant: "ghost",
-                  className: "rounded-full h-16 w-16",
-                })}
-              >
-                <Github
-                  style={{ height: "22px", width: "22px", color: "white" }}
-                />
-              </Link>
             </header>
             <div className="p-16">{children}</div>{" "}
           </main>
