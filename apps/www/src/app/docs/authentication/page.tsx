@@ -44,7 +44,7 @@ export default function InstallPage() {
             <li>Run the following command:</li>
           </ol>
 
-          <CodeBlock code="npx @cdm/gateui add auth" language="js" />
+          <CodeBlock code="npx @gateui/cli add auth" language="js" />
 
           <p>
             This will copy all the authentication code to your codebase.

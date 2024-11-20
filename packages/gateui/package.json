@@ -1,6 +1,6 @@
 {
-  "name": "@codebymedu/gateui",
-  "version": "1.0.1",
+  "name": "@gateui/cli",
+  "version": "1.0.2",
   "main": "index.js",
   "scripts": {
     "build": "tsup",

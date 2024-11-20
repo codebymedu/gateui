@@ -41,7 +41,7 @@ export default function InstallPage() {
             <li>Run the following command:</li>
           </ol>
 
-          <CodeBlock code="npx @cdm/gateui init" language="js" />
+          <CodeBlock code="npx @gateui/cli init" language="js" />
         </section>
 
         <section className="mb-8">

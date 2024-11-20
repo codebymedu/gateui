@@ -50,7 +50,7 @@ export default function InstallPage() {
             <li>Run the following command:</li>
           </ol>
 
-          <CodeBlock code="npx @cdm/gateui add user" language="js" />
+          <CodeBlock code="npx @gateui/cli add user" language="js" />
 
           <p>
             This will copy all the user management code to your codebase.
