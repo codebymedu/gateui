@@ -5,6 +5,8 @@
 
 GateUI is a simple and powerful identity management solution for Next.js applications using Supabase.
 
+Check out the documentation at [GateUI.com](https://gateui.com/docs/install)
+
 ## Features
 
 - 🚀 **Automatic Supabase Setup**: Streamlined configuration process for Supabase
