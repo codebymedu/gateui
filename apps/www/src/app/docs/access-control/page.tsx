@@ -1,3 +1,9 @@
+export const metadata: Metadata = {
+  title: "Access Control Setup - GateUI",
+  description:
+    "Setup access controls in your application using GateUI Identity Management Library.",
+};
+
 export default function OrganizationManagementPage() {
   // --- RENDER ---
 

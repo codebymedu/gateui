@@ -1,5 +1,11 @@
 import { CodeBlock } from "@/components/codeBlock";
 
+export const metadata: Metadata = {
+  title: "Configurations - GateUI",
+  description:
+    "Configure your application using GateUI Identity Management Library.",
+};
+
 export default function InstallPage() {
   // --- RENDER ---
 

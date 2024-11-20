@@ -1,15 +1,25 @@
 import { CodeBlock } from "@/components/codeBlock";
 import { buttonVariants } from "@/components/ui/button";
+import { Clock } from "lucide-react";
 import Link from "next/link";
 
-export default function InstallPage() {
+export const metadata: Metadata = {
+  title: "Authentication Guide - GateUI",
+  description:
+    "Setup authentication in your application using GateUI Identity Management Library.",
+};
+
+export default function AuthenticationPage() {
   // --- RENDER ---
 
   return (
     <div>
       <div className="">
-        <h1 className="text-3xl font-bold mb-2 font-mono">
+        <h1 className="text-3xl font-bold mb-2 font-mono flex gap-4 items-center">
           Setup Authentication
+          <div className="py-1 px-2 flex gap-2 items-center bg-green-500 text-sm">
+            <Clock size={16} /> Saves 16 hours of work
+          </div>
         </h1>
 
         <p className="mb-6 text-neutral-400">

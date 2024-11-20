@@ -2,6 +2,11 @@ import { CodeBlock } from "@/components/codeBlock";
 import { buttonVariants } from "@/components/ui/button";
 import Link from "next/link";
 
+export const metadata: Metadata = {
+  title: "Install guide - GateUI",
+  description: "Setup GateUI Identity Management Library in your application.",
+};
+
 export default function InstallPage() {
   // --- RENDER ---
 

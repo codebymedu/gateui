@@ -16,9 +16,39 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "GateUI - Fully Functional Auth Components",
+  title: "GateUI - Open Source Identity Management Library",
   description:
-    "React and Supabase components to setup authentication in minutes.",
+    "A secure and lightweight library for managing authentication and authorization in modern web applications using Next.JS and Supabase.",
+  keywords: [
+    "identity management",
+    "authentication",
+    "authorization",
+    "Next.js",
+    "open source",
+    "supabase",
+  ],
+  applicationName: "@gateui/cli",
+  authors: [{ name: "Meduard Krasniqi", url: "https://codebymedu.com" }],
+  robots: "index, follow",
+  openGraph: {
+    type: "website",
+    url: "https://gateui.com",
+    title: "GateUI - Open Source Identity Management Library",
+    description:
+      "A secure and lightweight library for managing authentication and authorization in modern web applications using Next.JS and Supabase.",
+    siteName: "@gateui/cli",
+  },
+  twitter: {
+    card: "summary_large_image",
+    site: "@codebymedu",
+    creator: "@codebymedu",
+    title: "GateUI - Open Source Identity Management Library",
+    description:
+      "A secure and lightweight library for managing authentication and authorization in modern web applications using Next.JS and Supabase.",
+  },
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({
@@ -47,6 +77,11 @@ export default function RootLayout({
             <div className="p-16">{children}</div>{" "}
           </main>
         </SidebarProvider>
+
+        <script
+          async
+          src="https://scripts.simpleanalyticscdn.com/latest.js"
+        ></script>
       </body>
     </html>
   );

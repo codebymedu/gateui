@@ -1,6 +1,13 @@
 import { CodeBlock } from "@/components/codeBlock";
 import { buttonVariants } from "@/components/ui/button";
+import { Clock } from "lucide-react";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "User Management - GateUI",
+  description:
+    "Setup user management in your application using GateUI Identity Management Library.",
+};
 
 export default function InstallPage() {
   // --- RENDER ---
@@ -8,8 +15,11 @@ export default function InstallPage() {
   return (
     <div>
       <div className="">
-        <h1 className="text-3xl font-bold mb-6 font-mono">
-          Setup User Management
+        <h1 className="text-3xl font-bold mb-6 font-mono flex gap-4 items-center">
+          Setup User Management{" "}
+          <div className="py-1 px-2 flex gap-2 items-center bg-green-500 text-sm">
+            <Clock size={16} /> Saves 14 hours of work
+          </div>
         </h1>
 
         <p className="mb-6 text-neutral-400">
@@ -23,10 +33,6 @@ export default function InstallPage() {
 
           <ul className="list-disc pl-6">
             <li>GateUI Installed</li>
-          </ul>
-
-          <ul className="list-disc pl-6">
-            <li>Supabase Installed</li>
           </ul>
 
           <p className="mt-2">
