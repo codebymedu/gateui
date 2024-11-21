@@ -1,19 +1,9 @@
 #!/usr/bin/env node
 
-/**
- * API:
- * - init
- *  search for supabase in the project
- *  if not found, asks if it exists or want to install
- *  if middleware.ts exists: inform this will overwrite the current middleware.ts
- *
- *
- *
- */
-
 import fs from "fs";
 import inquirer from "inquirer";
 import chalk from "chalk";
+import { setupSupabase } from "../lib/setupSupabase";
 
 // Define the structure of the config
 interface Config {
@@ -31,14 +21,30 @@ interface Config {
 async function askQuestions(): Promise<Config> {
   const config: Config = {
     supabase: {
-      client: "./lib/supabase/client",
-      serverClient: "./lib/supabase/server",
+      client: "./src/lib/supabase/client",
+      serverClient: "./src/lib/supabase/server",
     },
     aliases: {
-      components: "./components/",
-      lib: "./lib/",
+      components: "./src/components/",
+      lib: "./src/lib/",
     },
   };
+
+  // Step 2: Ask for aliases for components and lib
+  const aliasAnswers = await inquirer.prompt([
+    {
+      type: "input",
+      name: "componentsAlias",
+      message: "Enter the path for the components alias (e.g., ./components/):",
+      default: "./src/components/",
+    },
+    {
+      type: "input",
+      name: "libAlias",
+      message: "Enter the path for the lib alias (e.g., ./lib/):",
+      default: "./src/lib/",
+    },
+  ]);
 
   // Step 1: Ask if Supabase is configured
   const { supabaseConfigured } = await inquirer.prompt([
@@ -53,6 +59,8 @@ async function askQuestions(): Promise<Config> {
   // If Supabase is not configured, configure it automatically
   if (!supabaseConfigured) {
     console.log(chalk.cyan("Configuring Supabase for you..."));
+
+    setupSupabase(aliasAnswers.libAlias);
 
     // Simulate the Supabase setup process (handle actual setup later)
     console.log(chalk.green("\nSupabase has been configured automatically."));
@@ -73,36 +81,20 @@ async function askQuestions(): Promise<Config> {
         name: "clientPath",
         message:
           "Enter the path for the Supabase client (e.g., ./lib/supabase/client):",
-        default: "./lib/supabase/client",
+        default: "./src/lib/supabase/client",
       },
       {
         type: "input",
         name: "serverClientPath",
         message:
           "Enter the path for the Supabase server client (e.g., ./lib/supabase/server):",
-        default: "./lib/supabase/server",
+        default: "./src/lib/supabase/server",
       },
     ]);
 
     config.supabase.client = answers.clientPath;
     config.supabase.serverClient = answers.serverClientPath;
   }
-
-  // Step 2: Ask for aliases for components and lib
-  const aliasAnswers = await inquirer.prompt([
-    {
-      type: "input",
-      name: "componentsAlias",
-      message: "Enter the path for the components alias (e.g., ./components/):",
-      default: "./components/",
-    },
-    {
-      type: "input",
-      name: "libAlias",
-      message: "Enter the path for the lib alias (e.g., ./lib/):",
-      default: "./lib/",
-    },
-  ]);
 
   config.aliases.components = aliasAnswers.componentsAlias;
   config.aliases.lib = aliasAnswers.libAlias;
