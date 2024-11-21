@@ -21,6 +21,7 @@ import {
   Star,
 } from "lucide-react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const sections = [
   {
@@ -58,64 +59,6 @@ const sections = [
     ],
   },
 ] as const;
-
-// const sections = [
-//   {
-//     section: "Authentication",
-//     links: [
-//       { title: "<LoginForm />", url: "/login", icon: <LogIn /> },
-//       { title: "<SignUpForm />", url: "/signup", icon: <UserPlus /> },
-//       {
-//         title: "<ForgotPasswordForm />",
-//         url: "/forgot-password",
-//         icon: <Key />,
-//       },
-//     ],
-//   },
-//   {
-//     section: "User",
-//     links: [
-//       { title: "<UserProfile />", url: "/profile", icon: <User /> },
-//       {
-//         title: "<AccountSwitcher />",
-//         url: "/switch-account",
-//         icon: <ArrowRightCircle />,
-//       },
-//     ],
-//   },
-//   {
-//     section: "Organization Management",
-//     links: [
-//       {
-//         title: "<CreateOrganization />",
-//         url: "/create-organization",
-//         icon: <Briefcase />,
-//       },
-//       {
-//         title: "<OrganizationProfile />",
-//         url: "/organization-profile",
-//         icon: <Building />,
-//       },
-//       {
-//         title: "<SwitchOrganization />",
-//         url: "/switch-organization",
-//         icon: <Shuffle />,
-//       },
-//       {
-//         title: "<OrganizationList />",
-//         url: "/organizations",
-//         icon: <Layers />,
-//       },
-//     ],
-//   },
-//   {
-//     section: "Access Control",
-//     links: [
-//       { title: "<Protected />", url: "/protected", icon: <Shield /> },
-//       { title: "<Authenticated />", url: "/authenticated", icon: <Lock /> },
-//     ],
-//   },
-// ] as const;
 
 export function DocsSidebar() {
   return (

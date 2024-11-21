@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { DocsSidebar } from "./_components/sideBar";
+import { NavBar } from "./_components/navbar";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -63,19 +64,37 @@ export default function RootLayout({
       >
         <SidebarProvider>
           <DocsSidebar />
+
           <main className="p-2 w-full">
             <header className="w-full flex flex-col md:flex-row justify-between items-start  md:items-center">
               <SidebarTrigger />
 
-              <span className="text-sm md:text-xl ml-4 md:ml-0 text-neutral-400 font-semibold ">
-                GateUI - Fully Functional Auth Components for Next.js and
-                Supabase
-              </span>
+              <NavBar />
             </header>
             <div className="p-4 md:p-16 leading-7">{children}</div>{" "}
+            <footer>
+              <p className="w-full text-center py-4">
+                Build with ❤️ by{" "}
+                <a
+                  href="https://codebymedu.com"
+                  target="_blank"
+                  className="text-blue-600 hover:underline"
+                >
+                  Medu.
+                </a>{" "}
+                Inspired by{" "}
+                <a
+                  href="https://ui.shadcn.com/"
+                  target="_blank"
+                  className="text-blue-600 hover:underline"
+                >
+                  shadcn/ui.
+                </a>{" "}
+                Built for Next.js & Supabase community.
+              </p>
+            </footer>
           </main>
         </SidebarProvider>
-
         <script
           async
           src="https://scripts.simpleanalyticscdn.com/latest.js"
