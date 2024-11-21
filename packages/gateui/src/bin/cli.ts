@@ -13,82 +13,116 @@
 
 import fs from "fs";
 import inquirer from "inquirer";
+import chalk from "chalk";
 
-// Define the default configuration type
-type Config = {
-  callbackUrl: string;
-  authenticationMethod: "magicLink" | "password";
-  enabledProviders: ("google" | "" | "none")[];
+// Define the structure of the config
+interface Config {
+  supabase: {
+    client: string;
+    serverClient: string;
+  };
   aliases: {
     components: string;
     lib: string;
-    supabase: string;
   };
-};
+}
 
-// Define the default configuration
-const defaultConfig: Config = {
-  callbackUrl: "http://localhost:3000/auth/callback",
-  authenticationMethod: "magicLink",
-  enabledProviders: ["google"],
-  aliases: {
-    components: "@/components",
-    lib: "@/lib",
-    supabase: "@/lib/supabase",
-  },
-};
-
-console.log("Hello World! This is GateUI init.");
-
-// Function to ask user for configuration details
-async function askQuestions() {
-  const answers = await inquirer.prompt([
-    {
-      type: "input",
-      name: "callbackUrl",
-      message:
-        "Enter callback URL (default: http://localhost:3000/auth/callback):",
-      default: defaultConfig.callbackUrl,
+// Function to ask questions
+async function askQuestions(): Promise<Config> {
+  const config: Config = {
+    supabase: {
+      client: "./lib/supabase/client",
+      serverClient: "./lib/supabase/server",
     },
-    {
-      type: "list",
-      name: "authenticationMethod",
-      message: "Select authentication method:",
-      choices: ["magicLink", "password"],
-      default: defaultConfig.authenticationMethod,
+    aliases: {
+      components: "./components/",
+      lib: "./lib/",
     },
+  };
+
+  // Step 1: Ask if Supabase is configured
+  const { supabaseConfigured } = await inquirer.prompt([
     {
-      type: "checkbox",
-      name: "enabledProviders",
-      message: "Select enabled providers (you can select none):",
-      choices: [
-        { name: "Google", value: "google" },
-        { name: "None", value: "none" },
-      ],
-      default: defaultConfig.enabledProviders,
+      type: "confirm",
+      name: "supabaseConfigured",
+      message: "Is Supabase configured?",
+      default: false,
     },
   ]);
 
-  // Adjust enabledProviders array: If "None" is selected, set the array to empty.
-  let enabledProviders = answers.enabledProviders;
-  if (enabledProviders.includes("none")) {
-    enabledProviders = [];
+  // If Supabase is not configured, configure it automatically
+  if (!supabaseConfigured) {
+    console.log(chalk.cyan("Configuring Supabase for you..."));
+
+    // Simulate the Supabase setup process (handle actual setup later)
+    console.log(chalk.green("\nSupabase has been configured automatically."));
+
+    // Inform the user on what to do next
+    console.log(chalk.blue("\nNext steps:"));
+    console.log("1. Set the supabase environment variables in your .env file.");
+    console.log(
+      "2. Import created supabase/middleware.ts in next.js middleware.ts:"
+    );
+  } else {
+    console.log(chalk.green("\nSupabase is already configured."));
+
+    // If Supabase is already configured, ask for the paths to the clients
+    const answers = await inquirer.prompt([
+      {
+        type: "input",
+        name: "clientPath",
+        message:
+          "Enter the path for the Supabase client (e.g., ./lib/supabase/client):",
+        default: "./lib/supabase/client",
+      },
+      {
+        type: "input",
+        name: "serverClientPath",
+        message:
+          "Enter the path for the Supabase server client (e.g., ./lib/supabase/server):",
+        default: "./lib/supabase/server",
+      },
+    ]);
+
+    config.supabase.client = answers.clientPath;
+    config.supabase.serverClient = answers.serverClientPath;
   }
 
-  // Construct the config object based on user input
-  const config: Config = {
-    callbackUrl: answers.callbackUrl,
-    authenticationMethod: answers.authenticationMethod as
-      | "magicLink"
-      | "password",
-    enabledProviders: enabledProviders,
-    aliases: defaultConfig.aliases,
-  };
+  // Step 2: Ask for aliases for components and lib
+  const aliasAnswers = await inquirer.prompt([
+    {
+      type: "input",
+      name: "componentsAlias",
+      message: "Enter the path for the components alias (e.g., ./components/):",
+      default: "./components/",
+    },
+    {
+      type: "input",
+      name: "libAlias",
+      message: "Enter the path for the lib alias (e.g., ./lib/):",
+      default: "./lib/",
+    },
+  ]);
 
-  // Write the config to a file
-  fs.writeFileSync("auth.json", JSON.stringify(config, null, 2), "utf8");
-  console.log("auth.json file has been created with your configuration.");
+  config.aliases.components = aliasAnswers.componentsAlias;
+  config.aliases.lib = aliasAnswers.libAlias;
+
+  console.log(chalk.green("\ngateui.json has been created."));
+
+  return config;
 }
 
-// Run the function to ask questions
-askQuestions();
+async function saveConfig(config: Config) {
+  const configFilePath = "./gateui.json";
+
+  fs.writeFileSync(configFilePath, JSON.stringify(config, null, 2));
+  console.log(`Configuration saved to ${configFilePath}`);
+}
+
+// Main function to execute the flow
+async function main() {
+  const config = await askQuestions();
+  await saveConfig(config);
+}
+
+main();
