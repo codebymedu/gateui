@@ -14,7 +14,7 @@ export default function InstallPage() {
     <div>
       <h1 className="text-3xl font-bold mb-6 font-mono">Configuring GateUI</h1>
 
-      <section className="mb-8">
+      <section className="mb-16">
         <code className="bg-neutral-700 p-1">gateui.json</code> is located at
         the root of your project and we use it to understand your project and
         configure the features your install.

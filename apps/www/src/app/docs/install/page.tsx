@@ -18,8 +18,8 @@ export default function InstallPage() {
           Get Started with GateUI
         </h1>
 
-        <section className="mb-8">
-          <h2 className="text-xl font-semibold mb-2 font-mono">
+        <section className="mb-16">
+          <h2 className="text-xl font-semibold mb-2 font-mono  w-fit">
             Prerequisites
           </h2>
           <ul className="list-disc pl-6">
@@ -39,7 +39,7 @@ export default function InstallPage() {
           </p>
         </section>
 
-        <section className="mb-8 ">
+        <section className="mb-16 ">
           <h2 className="text-xl font-semibold mb-2 font-mono">Installation</h2>
           <ol className="list-decimal pl-6 mb-4">
             <li>Open your terminal</li>
@@ -50,7 +50,7 @@ export default function InstallPage() {
           <CodeBlock code="npx @gateui/cli init" language="js" />
         </section>
 
-        <section className="mb-8">
+        <section className="mb-16">
           <h2 className="text-xl font-semibold mb-2 font-mono">
             What Happens Next
           </h2>
@@ -86,7 +86,7 @@ export default function InstallPage() {
           </ul>
         </section>
 
-        <section className="mb-8 border p-4 rounded-md w-fit">
+        <section className="mb-16 border p-4 rounded-md w-fit">
           <h2 className="text-xl font-semibold mb-2 font-mono">
             Next Steps: Authentication Setup
           </h2>
@@ -104,7 +104,7 @@ export default function InstallPage() {
           </Link>
         </section>
 
-        <section className="mb-8">
+        <section className="mb-16">
           <h2 className="text-xl font-semibold mb-2 font-mono">Need Help?</h2>
           <p>
             If you encounter any issues, please{" "}

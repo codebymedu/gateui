@@ -27,7 +27,7 @@ export default function InstallPage() {
           Everything for letting users manage their accounts
         </p>
 
-        <section className="mb-8">
+        <section className="mb-16">
           <h2 className="text-xl font-semibold mb-2 font-mono">
             Prerequisites
           </h2>
@@ -48,7 +48,7 @@ export default function InstallPage() {
           </p>
         </section>
 
-        <section className="mb-8">
+        <section className="mb-16">
           <h2 className="text-xl font-semibold mb-2 font-mono">Installation</h2>
 
           <ol className="list-decimal pl-6 mb-4">
@@ -65,7 +65,7 @@ export default function InstallPage() {
           </p>
         </section>
 
-        <section className="mb-8">
+        <section className="mb-16">
           <h2 className="text-xl font-semibold mb-2 font-mono">How to use</h2>
 
           <p className="mb-2">
@@ -93,7 +93,7 @@ export default function UserProfilePage() {
           />
         </section>
 
-        <section className="mb-8">
+        <section className="mb-16">
           <h2 className="text-xl font-semibold mb-2 font-mono">
             What is installed
           </h2>
@@ -112,7 +112,7 @@ export default function UserProfilePage() {
           </ul>
         </section>
 
-        <section className="mb-8 border p-4 rounded-md w-fit">
+        <section className="mb-16 border p-4 rounded-md w-fit">
           <h2 className="text-xl font-semibold mb-2 font-mono">
             Next Steps: Access Control (optional)
           </h2>
@@ -131,7 +131,7 @@ export default function UserProfilePage() {
           </Link>
         </section>
 
-        <section className="mb-8">
+        <section className="mb-16">
           <h2 className="text-xl font-semibold mb-2 font-mono">Need Help?</h2>
           <p>
             If you encounter any issues, please{" "}

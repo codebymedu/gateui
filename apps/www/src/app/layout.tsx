@@ -72,7 +72,7 @@ export default function RootLayout({
                 Supabase
               </span>
             </header>
-            <div className="p-4 md:p-16">{children}</div>{" "}
+            <div className="p-4 md:p-16 leading-7">{children}</div>{" "}
           </main>
         </SidebarProvider>
 
