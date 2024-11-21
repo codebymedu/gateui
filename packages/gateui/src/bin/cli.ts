@@ -22,7 +22,7 @@ async function askQuestions(): Promise<Config> {
   const config: Config = {
     supabase: {
       client: "./src/lib/supabase/client",
-      serverClient: "./src/lib/supabase/server",
+      serverClient: "./src/lib/supabase/serverClient",
     },
     aliases: {
       components: "./src/components/",

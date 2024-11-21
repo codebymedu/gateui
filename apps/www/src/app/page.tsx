@@ -187,8 +187,7 @@ const DocsPage = () => {
             I am making GateUI public, so every developer, every indie maker out
             there can focus building in what they love and not repeatable tasks.
             <br />
-            <br />I will NEVER charge you for this. Not your personal info, not
-            your email, not your money, nothing!
+            <br />I will NEVER charge you for this.
             <br />
             <br />
             The only think I can ask you is a{" "}

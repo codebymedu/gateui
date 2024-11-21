@@ -79,10 +79,7 @@ export default function InstallPage() {
               If Supabase & Supabase auth middleware is set up, you only need to
               enter the location of the clients in gateui.json
             </li>
-            <li>
-              A gateui.json file will be created with your configuration (Make
-              sure to review it before installing any of the features.)
-            </li>
+            <li>A gateui.json file will be created with your configuration</li>
           </ul>
         </section>
 
