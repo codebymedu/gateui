@@ -1,8 +1,17 @@
 import { CodeBlock } from "@/components/codeBlock";
 import { buttonVariants } from "@/components/ui/button";
-import { Clock } from "lucide-react";
+import { Clock, Info } from "lucide-react";
 import Link from "next/link";
 import { Metadata } from "next";
+import {
+  Table,
+  TableBody,
+  TableCaption,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
 
 export const metadata: Metadata = {
   title: "Authentication Guide - GateUI",
@@ -67,29 +76,31 @@ export default function AuthenticationPage() {
           <h2 className="text-xl font-semibold mb-2 font-mono">How to use</h2>
 
           <p className="mb-2">
-            All you need to do is use the Login component in where you want the
-            login to be such as in a /login route or modal.
-          </p>
-
-          <p className="mb-8">
-            Login component also contains the signup component so there is no
-            need to create a separate route for signup. But if you wish to do
-            so, the Signup component is also exported from @/components/auth
+            All you need to do is use the LoginWithMagicLink component in where
+            you want the login to be such as in a /login route or modal.
           </p>
 
           <p className="mb-2 font-bold">Example Login Page</p>
 
           <CodeBlock
+            className="max-w-[700px]"
             code={`
-            import { Login } from "@/components/auth";
+            import { LoginWithMagicLink } from "@/components/auth";
+import { getUser } from "@/lib/auth";
 
-export default function LoginPage() {
+export default async function LoginPage() {
+  // --- STATE ---
+  const isLoggedIn = Boolean(await getUser())
+
   // --- RENDER ---
+  if(isLoggedIn) {
+    // redirect to homepage
+  }
 
   return (<div>
     <h1>Welcome to MyApp</h1>
     
-    <LoginForm />
+    <LoginWithMagicLink enabledProviders={["google"]} />
     </div>)
 }
 `}
@@ -98,26 +109,49 @@ export default function LoginPage() {
         </section>
 
         <section className="mb-16">
-          <h2 className="text-xl font-semibold mb-2 font-mono">
-            What is installed
-          </h2>
+          <h2 className="text-xl font-semibold mb-2 font-mono">API Overview</h2>
 
           <p className="mb-2">
             All the necessary code has been installed in the following places:
           </p>
 
-          <ul className="list-disc pl-6 mb-4">
-            <li>Components: @/components/auth/</li>
-            <li className="ml-4">
-              Exports: Login, SignUp, ForgotPassword, Logout
-            </li>
-            <li>Lib: @/lib/auth</li>
-            <li className="ml-4">
-              Exports: getUser, loginWithPassword, loginWithProvider,
-              loginWithMagicLink, signUpWithPassword, logout
-            </li>
-            <li>Routes: /auth/callback and /auth/confirm</li>
-          </ul>
+          <Table>
+            <TableHeader>
+              <TableRow>
+                <TableHead className="w-[200px]">Category</TableHead>
+                <TableHead>Location</TableHead>
+                <TableHead>Details</TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              <TableRow>
+                <TableCell className="font-medium">Components</TableCell>
+                <TableCell>@/components/auth/</TableCell>
+                <TableCell>
+                  Exports: LoginWithMagicLink, Logout
+                  <br />
+                  <span className="text-sm text-muted-foreground">
+                    Note: Only Login with magic link or social providers are
+                    currently enabled. Signup is not needed since MagicLink
+                    automatically creates a user.
+                  </span>
+                </TableCell>
+              </TableRow>
+              <TableRow>
+                <TableCell className="font-medium">Lib</TableCell>
+                <TableCell>@/lib/auth</TableCell>
+                <TableCell>
+                  Exports: getUser, loginWithProvider, loginWithMagicLink,
+                  logout
+                </TableCell>
+              </TableRow>
+              <TableRow>
+                <TableCell className="font-medium">Routes</TableCell>
+                <TableCell>/auth/callback</TableCell>
+                <TableCell>-</TableCell>
+              </TableRow>
+            </TableBody>
+          </Table>
         </section>
 
         <section className="mb-16 border p-4 rounded-md w-fit">

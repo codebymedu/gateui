@@ -98,7 +98,7 @@ export function DocsSidebar() {
         </SidebarGroup>
 
         {sections.map((section) => (
-          <SidebarGroup>
+          <SidebarGroup key={section.section}>
             <SidebarGroupLabel>{section.section}</SidebarGroupLabel>
             <SidebarGroupContent>
               <SidebarMenu>

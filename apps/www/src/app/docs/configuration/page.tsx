@@ -41,7 +41,6 @@ export default function InstallPage() {
   },
   # Authentication specific configurations
   "authentication": {
-    "methods": ["password", "magic_link", "google"],
     "callbackURL": "/auth/callback",
     "emailConfirmURL": "/auth/confirm"
   },

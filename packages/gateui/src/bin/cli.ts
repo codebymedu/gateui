@@ -12,6 +12,7 @@ interface Config {
     serverClient: string;
   };
   aliases: {
+    app: string;
     components: string;
     lib: string;
   };
@@ -25,6 +26,7 @@ async function askQuestions(): Promise<Config> {
       serverClient: "./src/lib/supabase/serverClient",
     },
     aliases: {
+      app: "./src/app/",
       components: "./src/components/",
       lib: "./src/lib/",
     },
@@ -34,14 +36,21 @@ async function askQuestions(): Promise<Config> {
   const aliasAnswers = await inquirer.prompt([
     {
       type: "input",
+      name: "appAlias",
+      message: "Enter the path for your app (e.g., ./src/app/):",
+      default: "./src/app/",
+    },
+    {
+      type: "input",
       name: "componentsAlias",
-      message: "Enter the path for the components alias (e.g., ./components/):",
+      message:
+        "Enter the path for the components alias (e.g., ./src/components/):",
       default: "./src/components/",
     },
     {
       type: "input",
       name: "libAlias",
-      message: "Enter the path for the lib alias (e.g., ./lib/):",
+      message: "Enter the path for the lib alias (e.g., ./src/lib/):",
       default: "./src/lib/",
     },
   ]);
@@ -98,6 +107,7 @@ async function askQuestions(): Promise<Config> {
 
   config.aliases.components = aliasAnswers.componentsAlias;
   config.aliases.lib = aliasAnswers.libAlias;
+  config.aliases.app = aliasAnswers.appAlias;
 
   console.log(chalk.green("\ngateui.json has been created."));
 

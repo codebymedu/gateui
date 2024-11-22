@@ -3,6 +3,15 @@ import { buttonVariants } from "@/components/ui/button";
 import { Clock } from "lucide-react";
 import Link from "next/link";
 import { Metadata } from "next";
+import {
+  Table,
+  TableBody,
+  TableCaption,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
 
 export const metadata: Metadata = {
   title: "User Management - GateUI",
@@ -102,14 +111,30 @@ export default function UserProfilePage() {
             All the necessary code has been installed in the following places:
           </p>
 
-          <ul className="list-disc pl-6 mb-4">
-            <li>Components: @/components/user/</li>
-            <li className="ml-4">
-              Exports: UserProfile, UserProfileDetails, UserProfileSecurity
-            </li>
-            <li>Lib: @/lib/user</li>
-            <li className="ml-4">Exports: updateUser</li>
-          </ul>
+          <Table>
+            <TableCaption>User Components and Functions</TableCaption>
+            <TableHeader>
+              <TableRow>
+                <TableHead className="w-[200px]">Category</TableHead>
+                <TableHead>Location</TableHead>
+                <TableHead>Details</TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              <TableRow>
+                <TableCell className="font-medium">Components</TableCell>
+                <TableCell>@/components/user/</TableCell>
+                <TableCell>
+                  Exports: UserProfile, UserProfileDetails, UserProfileSecurity
+                </TableCell>
+              </TableRow>
+              <TableRow>
+                <TableCell className="font-medium">Lib</TableCell>
+                <TableCell>@/lib/user</TableCell>
+                <TableCell>Exports: updateUser</TableCell>
+              </TableRow>
+            </TableBody>
+          </Table>
         </section>
 
         <section className="mb-16 border p-4 rounded-md w-fit">
